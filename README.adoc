@@ -1,5 +1,7 @@
 = System designs
 
+*System designs for real-world and fictional application software.*
+
 ''''
 
 Copyright © 2020-present Kieran Potts, link:./LICENSE.txt[CC0 license]
