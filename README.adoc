@@ -1,6 +1,20 @@
 = System designs
 
-*System designs for real-world and fictional application software.*
+*System designs for fictional application software.*
+
+== Contents
+
+* link:./src/chatops.adoc[*ChatOps (real-time comments)*]
+* link:./src/instant-messaging.adoc[*Instant messaging (WhatsApp, Telegram*]
+* link:./src/job-scheduler.adoc[*Job scheduler*]
+* link:./src/leaderboard.adoc[*Leaderboard*]
+* link:./src/music-streaming.adoc[*Music streaming*]
+* link:./src/notification-service.adoc[*Notification service*]
+* link:./src/payment-gateway.adoc[*Payment gateway*]
+* link:./src/pizza-delivery.adoc[*Pizza delivery*]
+* link:./src/ride-hailing.adoc[*Ride-hailing (Uber, Lyft)*]
+* link:./src/social-feed.adoc[*Social feed*]
+* link:./src/url-shortener.adoc[*URL shortener*]
 
 ''''
 
