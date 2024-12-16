@@ -1,0 +1,289 @@
+= System design template
+
+== Steps
+
+=== Step 1: Clarify requirements
+
+Define the *use cases* and *constraints* of the system as functional and
+non-functional requirements.
+
+==== Functional requirements
+
+* What are the core features that the system should support?
+
+* Who are the users, eg. customers, internal teams, administrators, etc.?
+
+* How will users interact with the system, eg. web, mobile, API, etc.?
+
+* What are the key data types the system must handle, eg. text, images,
+  structured data, etc.?
+
+* Are there any external systems or third-party services the system needs to
+  integrate with?
+
+==== Non-functional requirements
+
+* Is the system read-heavy or write-heavy? What's the read-to-write ratio?
+
+* Can the system have some downtime, or does it need to be highly available?
+
+* How critical is data consistency?
+
+* Are there any specific latency requirements?
+
+* Will rate limiting need to be applied to external API requests?
+
+=== Step 2: Capacity estimation
+
+* How many users are expected to interact with the system daily, and monthly?
+
+* What is the maximum number of concurrent users expected during peak times?
+
+* What is the expected number of requests per second?
+
+* How is this broken down between read and write operations?
+
+* How much storage might be needed to store all the data?
+
+* What different types of storage might be needed?
+
+* How much memory might be needed to cache frequently-accessed data?
+
+* Based on estimated traffic volume and data transfer sizes, can you estimate
+  network bandwidth requirements?
+
+=== Step 3: Conceptual design
+
+The conceptual architecture is the highest level of abstraction to view the
+system. It defines the major components of the system and how they interact.
+The purpose of the conceptual design is to determine the subsystems, the
+responsibilities of each, and the types of communication required between
+the boundaries of the subsystems.
+
+=== Step 4: Physical design
+
+The physical architecture maps the logical architecture to physical devices on
+which each software component runs. Simple diagrams should be used to show the
+major components of the system, including:
+
+* *Clients*: User-facing interfaces, eg. mobile.
+
+* *Application servers*: To process client requests.
+
+* *Load balancers*: To distribute incoming traffic across multiple servers.
+
+* *Services*: Specialized components performing specific functions.
+
+* *Databases*: To store user information and metadata.
+
+* *Storage*: To store files, images, videos, etc.
+
+* *Caches*: To improve latency and reduce load on the databases.
+
+* *Message queues*: If using asynchronous communication.
+
+* *External services*: If integrating with third-party APIs, eg. payment
+  gateways.
+
+Keep it simple. Avoid over-engineering, especially in the high-level designs.
+
+=== Step 5: Database design
+
+This step involves modeling the data, choosing the right storage systems,
+designing the database schema, and optimizing the storage and retrieval of data
+based on the anticipated access patterns.
+
+==== Data modeling
+
+* Identify the main *data entities* that the system needs to
+  store and manage, eg. users, products, orders.
+
+* Consider the *relationships* between these entities (how they interact
+  with each other).
+
+* Determine the *attributes* or properties associated with each entity,
+  eg. a user has a name, email, and password. Which attributes are required,
+  and which are optional? Which can have default values?
+
+* Identify any *unique identifiers* or primary keys for each entity.
+
+* Use *normalization* where it is priority to achieve data integrity and to
+  minimize redundancy, and *denormalization* where it is necessary to
+  optimize read performance for read-heavy data.
+
+==== Database types
+
+Evaluate the requirements and characteristics of the data to choose the
+appropriate storage solution, particularly SQL vs. NoSQL. Consider factors
+such as data structure, scalability, performance, consistency, and query
+patterns.
+
+* *Relational databases* are suitable for structured data with complex
+  relationships and ACID transactions.
+
+* *NoSQL databases* are suitable for unstructured or semi-structured data,
+  high scalability, and eventual consistency. Consider specialist forms of
+  NoSQL databases, eg. graph databases for highly connected data, or
+  time-series databases where the relationship between data points is
+  based on time.
+
+Consider using a combination of databases if different data subsets have
+distinct requirements.
+
+=== Step 6: API design
+
+Define how different components of the system will interact with each other
+(internal APIs), and how external clients can access the system's functionality
+(external APIs). There may be entirely different designs for internal and
+external APIs.
+
+Consider communication protocols, eg:
+
+* *HTTPS*: Commonly used for RESTful APIs and web services.
+
+* *WebSockets*: For real-time bidirectional communication, eg. chat apps.
+
+* *gRPC*: Efficient for direct RPC-style inter-service communication within
+  service-oriented architectures.
+
+* *Messaging protocols*: AMQP or MQTT for asynchronous messaging.
+
+Consider data formats, eg. JSON, XML, Protocol Buffers.
+
+Consider authentication and authorization mechanisms, eg. OAuth, JWT,
+API keys.
+
+=== Step 7: Deep dive into key components
+
+For each major component of the system design, identify key challenges likely
+to be encountered, such as scalability, availability, resilience (fault
+tolerance), data consistency, latency, security, and cost concerns. Identify
+single points of failure and potential bottlenecks in the system. Assume
+everything will fail at some point, and plan for it.
+
+Next, consider how you might address these challenges. For example, you might
+choose to design some redundancy into the system components (eg. in the form
+of multiple load balancers and database replicas) to eliminate single points
+of failure.
+
+The key areas of the system to dive into are:
+
+* *Services*
+
+  **  For each service, could you add more servers behind a load balancer, to
+      handle increased traffic?
+
+  **  Could services be broken down into smaller, more manageable microservices?
+
+  **  Are critical service stateless, so improve their scalability and
+      resilience?
+
+* *Processing*
+
+  **  What scope is there to use asynchronous programming models, to handle
+      concurrent requests as efficiently as possible? What tasks are appropriate
+      for background processing?
+
+  **  What tasks would be suitable for batch processing?
+
+  **  What tasks would require real-time stream processing?
+
+* *Communication*
+
+  **  What are the main modes of communication between services, eg. synchronous
+      requests, asynchronous messaging (eg. events), or direct RPC calls? Each
+      mode of communication will have its own particular risks that need to be
+      identified and mitigates.
+
+  **  Consider how circuit breakers may help to prevent cascading failures, and
+      also protect some services from overload.
+
+  **  Consider if implementing heartbeat mechanisms would  be useful to detect
+      failures and trigger failover systems?
+
+  **  Could retry mechanisms with exponential backoff be used to handle temporary
+      service failures, eg. during system recovery.
+
+  **  Consider how requests could be made idempotent, to simplify retry logic
+      and error handling.
+
+* *Databases*
+
+  **  How would you handle a massive increase in data volume?
+
+  **  Consider sharding (splitting data across multiple servers) and replication
+      (eg. read and write replicas).
+
+  **  Consider the trade-offs between vertical scaling (increasing the capacity
+      of individual resources like CPU, memory, and storage) and horizontal
+      scaling (adding more nodes and using load balancers to evenly distribute
+      the traffic between the nodes).
+
+  **  How could database queries be optimized, eg. using indexes for faster data
+      retrieval, or denormalization to reduce expensive cross-table joins?
+
+* *Caches*
+
+  **  Where could you add caching, for example to reduce latency or reduce
+      load on data stores?
+
+  **  Could you implement geographic caching, eg. CDNs, to reduce latency for
+      users in different world regions?
+
+  **  How would you implement cache invalidation?
+
+  **  Consider write-through caching strategies for write-heavy operations, and
+      read-through caching for read-heavy operations.
+
+  **  Can caches be prepopulated with critical data, to avoid cold starts?
+
+* *API design*
+
+  **  How would you handle versioning of APIs? What strategies would you need in
+      place to ensure backwards compatibility is maintained?
+
+  **  Consider appropriate rate limiting strategies for security and resilience.
+
+* *Infrastructure*
+
+  **  Can the system be deployed across different data centers or cloud
+      providers to improve availability (localized failures are eliminated as
+      a potential single-point-of-failure)?
+
+  **  Consider geographical redundancy to protect against regional failures or
+      disasters.
+
+  **  How would you deploy the system? Consider containerization (eg. Docker),
+      container orchestration (eg. Kubernetes), and infrastructure as code
+      (eg. Terraform).
+
+  **  How would you implement auto-scaling to handle traffic spikes?
+
+  **  How would you monitor the system? Consider logging, metrics, and tracing
+      tools.
+
+  **  Consider using a data lake or data warehouse for analytics and reporting.
+
+* *Testing*
+
+  **  Could you implement chaos engineering practices to test resilience and
+      find vulnerabilities?
+
+=== Step 8: Document trade-offs
+
+There can be no perfect solution. Identify the trade-offs that have been made
+in the system design, and why these are necessary due to the requirements and
+constraints. For example:
+
+* *Consistency vs availability*: In distributed systems, there's always a
+  trade-off to be made between strong consistency and high availability.
+
+* *Latency vs throughput*: Does the design optimize for low latency or high
+  throughput?
+
+* *Storage cost vs retrieval speed*: Is the design optimized for storage cost
+  or data retrieval speed? Why is this choice appropriate, given the expected
+  access patterns.
+
+* *Development time vs performance*: How does the design find a good balance
+  between time-to-market and optimizing for long-term maintainability?

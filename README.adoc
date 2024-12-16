@@ -16,6 +16,10 @@
 * link:./src/social-feed.adoc[*Social feed*]
 * link:./src/url-shortener.adoc[*URL shortener*]
 
+See also the link:./TEMPLATE.adoc[system design template], which sets out steps
+to follow, and considerations to make, when sketching out the high-level design
+for a new IT system.
+
 ''''
 
 Copyright © 2020-present Kieran Potts, link:./LICENSE.txt[CC0 license]
