@@ -1,12 +1,11 @@
 = ChatOps service design
 
+== Requirements
+
+=== Functional requirements
+
 // TODO
 
-////
+=== Non-functional requirements
 
-== Functional requirements
-
-== Non-functional requirements
-
-////
-
+// TODO

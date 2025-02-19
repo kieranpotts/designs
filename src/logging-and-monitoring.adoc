@@ -1,33 +1,25 @@
 = Logging and monitoring service system design
 
-// TODO
+== Requirements
 
-////
+=== Functional requirements
 
-== Functional requirements
-
-* Collect logs from various sources such as applications, servers, databases,
-  and microservices.
+* Collect logs from various sources such as applications, servers, databases, and microservices.
 
 * Support for multiple log formats, eg. JSON, plaintext, XMl.
 
 * Archive old logs to cost-effective storage, eg. cloud-based cold storage.
 
-* Provide powerful querying capabilities to filter and search logs based on
-  time range, log level, source, and other attributes.
+* Provide powerful querying capabilities to filter and search logs based on time range, log level, source, and other attributes.
 
 * Set up alerts based on specific log patterns, thresholds, or anomalies.
 
-== Non-functional requirements
+=== Non-functional requirements
 
-* Scalability: The system should scale horizontally to handle increasing
-  volumes of logs, metrics, and monitoring data.
+* Scalability: the system should scale horizontally to handle increasing volumes of logs, metrics, and monitoring data.
 
-* Low latency log ingestion and processing to ensure real-time monitoring.
+* Latency: log ingestion and processing should have low latency to provide users with real-time monitoring.
 
-* High availability to ensure continuous monitoring and alerting.
+* Availability: ensure continuous monitoring and alerting.
 
-* Durability: Ensure that log data is stored with high durability, with
-  replication across multiple nodes or data centres.
-
-////
+* Durability: ensure that log data is stored with high durability.

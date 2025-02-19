@@ -1,10 +1,8 @@
 = Instant messaging service design
 
-// TODO
+== Requirements
 
-////
-
-== Functional requirements
+=== Functional requirements
 
 * Support one-on-one and group conversations.
 
@@ -16,15 +14,12 @@
 
 * Push notifications for new messages, calls, and mentions (optional).
 
-== Non-functional requirements
+=== Non-functional requirements
 
-* *Real-time* message delivery with minimal latency.
+* Latency: real-time message delivery.
 
-* The system should handle millions of concurrent users.
+* Scalability: handle millions of concurrent users.
 
-* The system should be highly available. However, the availability can be
-  compromised in the interest of consistency.
+* Availability: some availability can be compromised in the interest of consistency.
 
-* Durability (messages shouldn't get lost).
-
-////
+* Durability: messages should not be lost.

@@ -1,26 +1,21 @@
 = Web crawler system design
 
-// TODO
+== Requirements
 
-////
-
-== Functional requirements
+=== Functional requirements
 
 * The system should be able to fetch URLs from the web efficiently.
 
-* Handle different content types, eg. text, images, multimedia.
+* The crawler should be able to handle different content types: text, images, and multimedia.
 
-* Prioritize URLs based on specific criteria, eg. importance, freshness.
+* The system should be able to prioritize URLs based on specific criteria, such as importance or freshness.
 
-* Store crawled data efficiently in a database or file system.
+* Crawled data should be stored as efficiently as possible – there is expected to be a lot of it.
 
-== Non-functional requirements
+=== Non-functional requirements
 
-* Scalability: The system should scale to handle millions or billions of web
-  pages.
+* Scalability: the system should be able to scale to handle millions, even billions, of pages.
 
-* Minimize latency in fetching and processing web pages.
+* Latency: minimize the time it takes to fetch and process web pages.
 
-* Optimize throughput to maximize the number of pages crawled per unit of time.
-
-////
+* Throughput: optimize the number of pages crawled per unit of time.
