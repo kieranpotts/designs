@@ -1,4 +1,4 @@
-= Music streaming service design
+= Social feed service design
 
 // TODO
 

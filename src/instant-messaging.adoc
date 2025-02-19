@@ -1,3 +1,30 @@
 = Instant messaging service design
 
 // TODO
+
+////
+
+== Functional requirements
+
+* Support one-on-one and group conversations.
+
+* Keep track of the online/offline status of users.
+
+* Provide message delivery statuses (sent, delivered, read).
+
+* Support multimedia messages (images, videos, voice notes, documents).
+
+* Push notifications for new messages, calls, and mentions (optional).
+
+== Non-functional requirements
+
+* *Real-time* message delivery with minimal latency.
+
+* The system should handle millions of concurrent users.
+
+* The system should be highly available. However, the availability can be
+  compromised in the interest of consistency.
+
+* Durability (messages shouldn't get lost).
+
+////

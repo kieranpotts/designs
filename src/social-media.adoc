@@ -1,0 +1,35 @@
+= Social media system design
+
+// TODO
+
+////
+
+== Functional requirements
+
+* Users can upload and share images and videos.
+
+* Users can like, comment, and share posts.
+
+* Users can follow/unfollow other users.
+
+* Generate and display new feed for users, showing posts from people the user
+  follows.
+
+* Support for tagging other users in posts and comments.
+
+== Non-functional requirements
+
+* *High availability*: The service should be up 99.9% of the time.
+
+* *Low latency* for news feed generation.
+
+* *High scalability*: The platform should handle millions of concurrent users.
+
+* *High durability*: Users' uploaded photos and videos shouldn't get lost.
+
+* *Eventual consistency*: If a user doesn't see a photo for some time, it
+  should be fine.
+
+////
+
+

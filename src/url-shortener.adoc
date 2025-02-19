@@ -1,3 +1,33 @@
 = URL shortener service design
 
 // TODO
+
+////
+
+== Functional requirements
+
+* Generate a unique short URL for a given long URL.
+
+* Redirect the user to the original URL when the short URL is accessed.
+
+* Allow users to customize their short URLs (optional).
+
+* Support link expiration where URLs are no longer accessible after a certain
+  time.
+
+* Provide analytics on link usage (optional).
+
+== Non-functional requirements
+
+* *High availability*: The service should be up 99.9% of the time.
+
+* *Low latency*: URL shortening and redirects should happen in milliseconds.
+
+* *Scalability*: The system should handle millions of requests per day.
+
+* *Durability*: Shortened URLs should work for years.
+
+* *Security*: Prevent malicious users from generating short URLs that redirect
+  to harmful websites, eg. phishing sites.
+
+////

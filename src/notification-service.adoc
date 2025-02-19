@@ -1,3 +1,36 @@
 = Notification service system design
 
 // TODO
+
+////
+
+== Functional requirements
+
+* Support for various notification channels such as email, SMS, push
+  notifications (mobile/web), and in-app notifications.
+
+* Support for different types of notifications, such as transactional,
+  promotional, and informational.
+
+* Ability to schedule notifications for future delivery.
+
+* Ability to send notifications in bulk, especially for campaigns or mass
+  updates.
+
+* Automatic retry mechanisms for failed notification deliveries.
+
+== Non-functional requirements
+
+* *High scalability*: The system should handle millions of notifications
+  per minute, especially during peak times.
+
+* *High availability* to ensure notifications are sent without interruption.
+
+* *Low latency* for sending notifications, especially for real-time and
+  high-priority notifications.
+
+* *Reliability*: The system should ensure reliable delivery of notifications
+  across all supported channels.
+
+////
+

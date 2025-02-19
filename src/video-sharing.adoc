@@ -1,0 +1,36 @@
+= Video sharing
+
+// TODO
+
+////
+
+== Functional requirements
+
+* Users can upload videos.
+
+* Support for adding video titles, descriptions, tags, and thumbnails.
+
+* Users cna stream videos on-demand.
+
+* Search functionality to find videos, channels, and playlists based on
+  keywords.
+
+* Users can like, dislike, comment on, and share videos.
+
+* Service should record view count of videos.
+
+== Non-functional requirements
+
+* *High availability* to ensure the service is accessible at all times.
+
+* *Low latency*: Video streaming should be real-time without lag.
+
+* *High scalability*: The service should be able to scale horizontally to
+  accommodate increasing numbers of users and video content.
+
+* *High durability*: Uploaded videos shouldn't get lost.
+
+////
+
+
+

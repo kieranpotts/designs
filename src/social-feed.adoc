@@ -1,3 +1,0 @@
-= Social feed service design
-
-// TODO

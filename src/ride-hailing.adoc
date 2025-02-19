@@ -1,3 +1,33 @@
 = Ride hailing service design
 
 // TODO
+
+////
+
+== Functional requirements
+
+* Riders can see all the nearby available drivers on a map.
+
+* Riders can book a ride by specifying a pickup location, drop-off location.
+
+* Match riders with nearby available drivers in real-time.
+
+* Real-time estimation of ride cost and time of arrival, based on distance,
+  traffic, and demand.
+
+* Real-time tracking of the ride, both for rider and driver.
+
+== Non-functional requirements
+
+* *Scalability*: The system should scale to handle millions of users and
+  rides simultaneously.
+
+* Ensure *low latency* for real-time matching, GPS tracking, and ride requests.
+
+* Ensure *high availability* with minimal downtime.
+
+* *Consistency*: The riders and drivers should have a consistent view of the
+  system.
+
+////
+

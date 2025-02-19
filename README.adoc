@@ -4,17 +4,23 @@
 
 == Contents
 
-* link:./src/chatops.adoc[*ChatOps (real-time comments)*]
-* link:./src/instant-messaging.adoc[*Instant messaging (WhatsApp, Telegram*]
-* link:./src/job-scheduler.adoc[*Job scheduler*]
-* link:./src/leaderboard.adoc[*Leaderboard*]
-* link:./src/music-streaming.adoc[*Music streaming*]
-* link:./src/notification-service.adoc[*Notification service*]
-* link:./src/payment-gateway.adoc[*Payment gateway*]
-* link:./src/pizza-delivery.adoc[*Pizza delivery*]
-* link:./src/ride-hailing.adoc[*Ride-hailing (Uber, Lyft)*]
-* link:./src/social-feed.adoc[*Social feed*]
-* link:./src/url-shortener.adoc[*URL shortener*]
+* *link:./src/chatops.adoc[ChatOps (real-time comments)]*
+* *link:./src/e-commerce.adoc[E-commerce platform (Amazon)]*
+* *link:./src/file-storage.adoc[File Storage (Box, Google Drive)]*
+* *link:./src/instant-messaging.adoc[Instant messaging (WhatsApp, Telegram]*
+* *link:./src/job-scheduler.adoc[Job scheduler]*
+* *link:./src/leaderboard.adoc[Leaderboard]*
+* *link:./src/logging-and-monitoring.adoc[Logging and monitoring service]*
+* *link:./src/music-streaming.adoc[Music streaming]*
+* *link:./src/notification-service.adoc[Notification service]*
+* *link:./src/payment-gateway.adoc[Payment gateway]*
+* *link:./src/pizza-delivery.adoc[Pizza delivery]*
+* *link:./src/ride-hailing.adoc[Ride-hailing (Uber, Lyft)]*
+* *link:./src/social-media.adoc[Social media (Instagram, Twitter)]*
+* *link:./src/social-news-feed.adoc[Social news feed]*
+* *link:./src/url-shortener.adoc[URL shortener]*
+* *link:./src/video-sharing.adoc[Video sharing (YouTube)]*
+* *link:./src/web-crawler.adoc[Web crawler]*
 
 See also the link:./TEMPLATE.adoc[system design template], which sets out steps
 to follow, and considerations to make, when sketching out the high-level design

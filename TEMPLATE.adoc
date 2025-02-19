@@ -52,6 +52,20 @@ non-functional requirements.
 * Based on estimated traffic volume and data transfer sizes, can you estimate
   network bandwidth requirements?
 
+////
+
+TODO: 4 levels of modelling / abstraction, from from high-level to low-level:
+
+* Conceptual architecture: The highest point from which to view the architecture of the Inform Wire system.
+
+* Logical architecture: How our production systems work in terms of functions and logical information.
+
+* Physical architecture: Maps the logical architecture to physical devices on which each software component runs.
+
+* Technical design: A catalogue of the computer languages, runtime environments, and system software used in Inform Wire's production systems.
+
+////
+
 === Step 3: Conceptual design
 
 The conceptual architecture is the highest level of abstraction to view the
@@ -59,6 +73,8 @@ system. It defines the major components of the system and how they interact.
 The purpose of the conceptual design is to determine the subsystems, the
 responsibilities of each, and the types of communication required between
 the boundaries of the subsystems.
+
+// TODO: Add logical design
 
 === Step 4: Physical design
 

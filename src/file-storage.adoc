@@ -1,0 +1,35 @@
+= File storage service system design
+
+// TODO
+
+////
+
+== Functional requirements
+
+* Users should be able to upload files of various types and sizes.
+
+* Users should be able to download files on-demand.
+
+* Users should be able to share files and folders with other users, via
+  links or email invitations.
+
+* Allow users to search for files and folders by name, type, content, or
+  metadata.
+
+* Support synchronization of files across multiple devices.
+
+== Non-functional requirements
+
+* *Scalability*: The system should be able to handle millions of users and
+  billions of files.
+
+* Ensure low latency for file uploads and downloads, and also for search
+  operations.
+
+* Availability: the service should be highly available.
+
+* Ensure consistency across all user devices during file synchronization.
+
+* Durability: User's file should not be lost.
+
+////

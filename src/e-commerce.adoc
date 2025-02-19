@@ -1,0 +1,33 @@
+= E-commerce platform system design
+
+// TODO
+
+////
+
+== Functional requirements
+
+* Allow sellers to list products with details like title, description, price,
+  images, and specifications.
+
+* Users can add products to a shopping cart and wishlist.
+
+* Users can search for products, categories, and brands based on keywords.
+
+* Users can place orders for one or multiple products.
+
+* Users can rate and review products they have purchased.
+
+== Non-functional requirements
+
+* *High scalability*: The platform should handle millions of users, products,
+  and transactions simultaneously.
+
+* *High availability*: The service should be up 99.9% of the time.
+
+* *Low latency* for page load times, search queries, and checkout processes.
+
+* *High durability*: All critical data (user data, product listings, orders)
+  is stored with high durability.
+
+////
+
